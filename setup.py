@@ -22,7 +22,7 @@ setup (name = "PyVTK",
        description = "PyVTK - tools for manipulating VTK files in Python",
        author = "Pearu Peterson",
        author_email = "pearu@cens.ioc.ee",
-       licence = "LGPL",
+       license = "LGPL",
        long_description= """
        PyVTK provides tools for manipulating VTK (Visualization Toolkit)
        files in Python:

@@ -1,0 +1,48 @@
+pyvtk (0.4.66-3) unstable; urgency=low
+
+  * debian/control: Build-depend on python to ensure that "pydoc"
+  is available.  Closes: #259126.
+
+ -- Steve M. Robbins <smr@debian.org>  Sun, 18 Jul 2004 17:04:58 -0400
+
+pyvtk (0.4.66-2) unstable; urgency=low
+
+  * Thanks to Matthias Klose for the NMUs.  
+    Closes: #204671, #204955.
+
+  * debian/control: Fix override disparity.
+
+ -- Steve M. Robbins <smr@debian.org>  Sat, 25 Oct 2003 20:30:25 -0400
+
+pyvtk (0.4.66-1.2) unstable; urgency=low
+
+  * NMU.
+  * Correctly use dh_python (closes: #204955).
+
+ -- Matthias Klose <doko@debian.org>  Sun, 28 Sep 2003 12:32:06 +0200
+
+pyvtk (0.4.66-1.1) unstable; urgency=low
+
+  * NMU.
+  * Upload for python2.3 as the default python version.
+  * Use dh_python, delete the postinst/prerm files.
+  * Remove the dependency of the 2.1 and 2.2 packages on python and call
+    python2.1/python2.2 directly in the scripts.
+
+ -- Matthias Klose <doko@debian.org>  Sat,  9 Aug 2003 08:45:37 +0200
+
+pyvtk (0.4.66-1) unstable; urgency=low
+
+  * New upstream version.
+
+  * Build-depend on pythonX.Y-dev packages.  Closes: #178888.
+
+ -- Steve M. Robbins <smr@debian.org>  Fri, 31 Jan 2003 21:40:09 -0500
+
+pyvtk (0.4.62-1) unstable; urgency=low
+
+  * Initial upload.  Closes: #140209.
+
+  * lib/__init__.py: Strip header to 255 characters plus newline.
+
+ -- Steve M. Robbins <smr@debian.org>  Sat, 23 Nov 2002 16:03:10 -0500
