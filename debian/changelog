@@ -1,3 +1,11 @@
+pyvtk (0.4.66-4) unstable; urgency=low
+
+  * Remove python2.1-pyvtk, python2.2-pyvtk packages.  Closes: #351155.
+
+  * New package python2.4-pyvtk.
+  
+ -- Steve M. Robbins <smr@debian.org>  Thu,  2 Feb 2006 23:57:11 -0500
+
 pyvtk (0.4.66-3) unstable; urgency=low
 
   * debian/control: Build-depend on python to ensure that "pydoc"

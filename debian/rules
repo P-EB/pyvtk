@@ -5,21 +5,14 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-# This is the debhelper compatability version to use.
-export DH_COMPAT=3
-
-
-PV1 = 2.1
-PV2 = 2.2
-PV3 = 2.3
+PV1 = 2.3
+PV2 = 2.4
 
 p1 = python$(PV1)-pyvtk
 p2 = python$(PV2)-pyvtk
-p3 = python$(PV3)-pyvtk
 
 d1 = debian/$(p1)
 d2 = debian/$(p2)
-d3 = debian/$(p3)
 
 
 clean:
@@ -29,7 +22,6 @@ clean:
 
 	python$(PV1) setup.py clean
 	python$(PV2) setup.py clean
-	python$(PV3) setup.py clean
 	-find -name '*.py[co]' | xargs rm -f
 	rm -f doc/pyvtk doc/*.html
 	rm -f lib/test.vtk
@@ -43,7 +35,6 @@ build-stamp:
 
 	python$(PV1) setup.py build
 	python$(PV2) setup.py build
-	python$(PV3) setup.py build
 
 	ln -s ../lib doc/pyvtk
 	cd doc && sh gen_pydoc.sh
@@ -61,12 +52,11 @@ install: build
 
 	python$(PV1) setup.py install --prefix=$(d1)/usr
 	python$(PV2) setup.py install --prefix=$(d2)/usr
-	python$(PV3) setup.py install --prefix=$(d3)/usr
 
 	mkdir -p debian/python-pyvtk/usr/share/doc/python-pyvtk
 	cp -a doc debian/python-pyvtk/usr/share/doc/python-pyvtk/html
 
-	-find $(d1) $(d2) $(d3) -name '*.py[co]' | xargs rm -f
+	-find $(d1) $(d2) -name '*.py[co]' | xargs rm -f
 
 	: # make python scripts starting with '#!' executable
 	for i in `find debian -mindepth 2 -type f ! -perm 755`; do \
@@ -76,10 +66,10 @@ install: build
 	  fi; \
 	done
 
-	: # Replace all '#!' calls to python with /usr/bin/python2.1
+	: # Replace all '#!' calls to python with /usr/bin/python2.3
 	: # and make them executable
 	for i in `find $(d1) -type f`; do \
-	  sed '1s,#!.*python[^ ]*\(.*\),#! /usr/bin/python2.1\1,' \
+	  sed '1s,#!.*python[^ ]*\(.*\),#! /usr/bin/python2.3\1,' \
 		$$i > $$i.temp; \
 	  if cmp --quiet $$i $$i.temp; then \
 	    rm -f $$i.temp; \
@@ -90,10 +80,10 @@ install: build
 	  fi; \
 	done
 
-	: # Replace all '#!' calls to python with /usr/bin/python2.2
+	: # Replace all '#!' calls to python with /usr/bin/python2.4
 	: # and make them executable
 	for i in `find $(d2) -type f`; do \
-	  sed '1s,#!.*python[^ ]*\(.*\),#! /usr/bin/python2.2\1,' \
+	  sed '1s,#!.*python[^ ]*\(.*\),#! /usr/bin/python2.4\1,' \
 		$$i > $$i.temp; \
 	  if cmp --quiet $$i $$i.temp; then \
 	    rm -f $$i.temp; \
