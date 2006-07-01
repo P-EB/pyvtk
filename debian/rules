@@ -5,23 +5,16 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-PV1 = 2.3
-PV2 = 2.4
-
-p1 = python$(PV1)-pyvtk
-p2 = python$(PV2)-pyvtk
-
-d1 = debian/$(p1)
-d2 = debian/$(p2)
-
+PYVERS=$(shell pyversions -r)
 
 clean:
 	dh_testdir
 	dh_testroot
+	for python in $(PYVERS); \
+		do $$python setup.py clean; \
+	done
 	rm -f build-stamp
 
-	python$(PV1) setup.py clean
-	python$(PV2) setup.py clean
 	-find -name '*.py[co]' | xargs rm -f
 	rm -f doc/pyvtk doc/*.html
 	rm -f lib/test.vtk
@@ -33,8 +26,10 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-	python$(PV1) setup.py build
-	python$(PV2) setup.py build
+	set -e; \
+	for python in $(PYVERS); \
+		do $$python setup.py build; \
+	done
 
 	ln -s ../lib doc/pyvtk
 	cd doc && sh gen_pydoc.sh
@@ -50,47 +45,19 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-	python$(PV1) setup.py install --prefix=$(d1)/usr
-	python$(PV2) setup.py install --prefix=$(d2)/usr
+	set -e; \
+	for python in $(PYVERS); \
+		do $$python setup.py install --root=debian/python-pyvtk; \
+	done
 
 	mkdir -p debian/python-pyvtk/usr/share/doc/python-pyvtk
 	cp -a doc debian/python-pyvtk/usr/share/doc/python-pyvtk/html
-
-	-find $(d1) $(d2) -name '*.py[co]' | xargs rm -f
 
 	: # make python scripts starting with '#!' executable
 	for i in `find debian -mindepth 2 -type f ! -perm 755`; do \
 	  if head -1 $$i | grep -q '^#!'; then \
 	    chmod 755 $$i; \
 	    echo "made executable: $$i"; \
-	  fi; \
-	done
-
-	: # Replace all '#!' calls to python with /usr/bin/python2.3
-	: # and make them executable
-	for i in `find $(d1) -type f`; do \
-	  sed '1s,#!.*python[^ ]*\(.*\),#! /usr/bin/python2.3\1,' \
-		$$i > $$i.temp; \
-	  if cmp --quiet $$i $$i.temp; then \
-	    rm -f $$i.temp; \
-	  else \
-	    mv -f $$i.temp $$i; \
-	    chmod 755 $$i; \
-	    echo "fixed interpreter: $$i"; \
-	  fi; \
-	done
-
-	: # Replace all '#!' calls to python with /usr/bin/python2.4
-	: # and make them executable
-	for i in `find $(d2) -type f`; do \
-	  sed '1s,#!.*python[^ ]*\(.*\),#! /usr/bin/python2.4\1,' \
-		$$i > $$i.temp; \
-	  if cmp --quiet $$i $$i.temp; then \
-	    rm -f $$i.temp; \
-	  else \
-	    mv -f $$i.temp $$i; \
-	    chmod 755 $$i; \
-	    echo "fixed interpreter: $$i"; \
 	  fi; \
 	done
 
