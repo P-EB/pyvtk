@@ -1,7 +1,7 @@
 # Makefile for installing Python package under Python 1.x.
 # Use GNU make for making.
 # $Revision: 1.1 $
-# $Date: 2001/05/20 12:51:29 $
+# $Date: 2001-05-20 12:51:29 $
 # Pearu Peterson <pearu@ioc.ee>
 
 PYTHON = python

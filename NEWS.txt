@@ -1,5 +1,13 @@
 
 0.4 (???)
+* Fixed Bug#401063: python-pyvtk in Debian (note from Steve M. Robbins).
+* Fixed numpy scalar testing (thanks to Andrew Straw, David M. Cooke).
+* Added numpy array support (thanks to Norbert Nemec).
+* Support for different types of Numeric arrays.
+* Fixed missing `import common` in Tensors.py.
+* Updated vtk file formats link.
+* Added MANIFEST.in to MANIFEST.in; 
+  disabled print statements (feature request: Konrad Hinsen)
 * Fixed binary writer for UnstructuredGrid.
 * Fixed 256 characters limit bug in header of VTK file (bug report and
   fix: Steve M. Robbins)

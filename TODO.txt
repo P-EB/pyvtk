@@ -1,3 +1,6 @@
+* April 7, 2003
+  Implement vtk File Formats 3.0 support
+
 * May 31, 2001:
   Need more efficient VTK data reader.
 

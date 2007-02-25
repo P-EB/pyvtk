@@ -1,18 +1,12 @@
 #!/usr/bin/make -f
-# Sample debian/rules that uses debhelper.
-# GNU copyright 1997 to 1999 by Joey Hess.
-
-# Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
 
 PYVERS=$(shell pyversions -r)
+PREFIX := debian/python-pyvtk/usr
 
 clean:
 	dh_testdir
 	dh_testroot
-	for python in $(PYVERS); \
-		do $$python setup.py clean; \
-	done
+	python setup.py clean
 	rm -f build-stamp
 
 	-find -name '*.py[co]' | xargs rm -f
@@ -25,11 +19,6 @@ clean:
 build: build-stamp
 build-stamp:
 	dh_testdir
-
-	set -e; \
-	for python in $(PYVERS); \
-		do $$python setup.py build; \
-	done
 
 	ln -s ../lib doc/pyvtk
 	cd doc && sh gen_pydoc.sh
@@ -45,21 +34,11 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-	set -e; \
-	for python in $(PYVERS); \
-		do $$python setup.py install --root=debian/python-pyvtk; \
-	done
+	python setup.py install --no-compile \
+		--install-lib=$(PREFIX)/share/python-support/python-pyvtk
 
 	mkdir -p debian/python-pyvtk/usr/share/doc/python-pyvtk
 	cp -a doc debian/python-pyvtk/usr/share/doc/python-pyvtk/html
-
-	: # make python scripts starting with '#!' executable
-	for i in `find debian -mindepth 2 -type f ! -perm 755`; do \
-	  if head -1 $$i | grep -q '^#!'; then \
-	    chmod 755 $$i; \
-	    echo "made executable: $$i"; \
-	  fi; \
-	done
 
 	dh_install
 
@@ -78,7 +57,7 @@ binary-common:
 	dh_link
 	dh_compress -X.py
 	dh_fixperms
-	dh_python
+	dh_pysupport
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol

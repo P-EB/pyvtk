@@ -11,11 +11,11 @@ terms of the LGPL.  See http://www.fsf.org
 
 NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
 $Revision: 1.3 $
-$Date: 2001/06/13 08:35:00 $
+$Date: 2001-06-13 08:35:00 $
 Pearu Peterson
 """
 
-__version__ = "$Id: Data.py,v 1.3 2001/06/13 08:35:00 pearu Exp $"
+__version__ = "$Id: Data.py,v 1.3 2001-06-13 08:35:00 pearu Exp $"
 
 
 import common

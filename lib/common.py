@@ -10,8 +10,8 @@ Permission to use, modify, and distribute this software is given under the
 terms of the LGPL.  See http://www.fsf.org
 
 NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
-$Revision: 1.8 $
-$Date: 2003/01/26 10:05:27 $
+$Revision: 1.13 $
+$Date: 2007-02-22 12:15:46 $
 Pearu Peterson
 """
 
@@ -37,15 +37,19 @@ def is_sequence3(obj):
 
 def is_number(obj):
     """Check if obj is number."""
-    return type(obj) in [types.IntType,types.FloatType]
+    return isinstance(obj, (int, float))
 
 def is_int(obj):
     """Check if obj is integer."""
-    return type(obj) is types.IntType
+    return isinstance(obj, int)
+
+def is_float(obj):
+    """Check if obj is float."""
+    return isinstance(obj, float)
 
 def is_string(obj):
     """Check if obj is string."""
-    return type(obj) is types.StringType
+    return isinstance(obj, str)
 
 def is_int255(obj):
     if is_sequence(obj):
@@ -113,11 +117,31 @@ class Common:
     def __str__(self):
         return self.to_string()
     def get_datatype(self,obj):
-        t = type(obj)
-        if t is types.IntType: return self.default_int
-        if t is types.FloatType: return self.default_float
+        typecode = None
+        if hasattr(obj,'dtype'): # obj is numpy array
+            typecode = obj.dtype.char
+        elif hasattr(obj,'typecode'): # obj is Numeric array
+            typecode = obj.typecode()
+
+        if typecode is not None:
+            r =  {'b':'unsigned_char', #'bit'??
+                  'f':'float', 
+                  'd':'double',
+                  'i':'int',
+                  'l':'long',
+                  '1':'char',
+                  's':'short',
+                  'w':'unsigned_short',
+                  'u':'unsigned_int'
+                  #'?':'unsigned_long'
+                  }.get(typecode)
+            if r is not None:
+                return r
+        if is_int(obj): return self.default_int
+        if is_float(obj): return self.default_float
         if not is_sequence(obj):
-            raise ValueError,'expected int|float|non-empty sequence but got %s'%t
+            raise ValueError,'expected int|float|non-empty sequence but got %s'\
+                  %(type(obj))
         if not len(obj):
             self.warning('no data, no datatype, using int')
             r = 'int'
