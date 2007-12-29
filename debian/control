@@ -1,0 +1,31 @@
+Source: pyvtk
+Section: python
+Priority: optional
+Maintainer: Steve M. Robbins <smr@debian.org>
+Uploaders: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Build-Depends: debhelper (>= 5), python-support (>= 0.4), python
+Standards-Version: 3.7.2.2
+
+Package: python-pyvtk
+Architecture: all
+Depends: ${python:Depends}
+Conflicts: python2.3-pyvtk (<< 0.4.66-6), python2.4-pyvtk (<< 0.4.66-6)
+Replaces: python2.3-pyvtk (<< 0.4.66-6), python2.4-pyvtk (<< 0.4.66-6)
+Provides: ${python:Provides}
+XS-Python-Version: current
+XB-Python-Version: ${python:Versions}
+Description: module for manipulating VTK files
+ PyVTK provides a VtkData class to create VTK a file from standard
+ Python objects.  Only VTK File Format version 2.0 is supported.
+ Features include:
+   - ascii and binary output, ascii input
+   - DataSet formats:
+       StructuredPoints, StructuredGrid, RectilinearGrid,
+       PolyData, UnstructuredGrid
+   - Data formats:
+       PointData, CellData
+   - DataSetAttr formats:
+       Scalars, ColorScalars, LookupTable, Vectors,
+       Normals, TextureCoordinates, Tensors, Field
+ .
+ See http://cens.ioc.ee/projects/pyvtk/ for more details.
