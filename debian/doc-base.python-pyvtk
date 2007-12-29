@@ -7,5 +7,3 @@ Section: devel
 Format: HTML
 Index: /usr/share/doc/python-pyvtk/html/pyvtk.html
 Files: /usr/share/doc/python-pyvtk/html/*.html
-
-  
