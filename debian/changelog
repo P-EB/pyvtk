@@ -1,8 +1,13 @@
 pyvtk (0.4.74-3) UNRELEASED; urgency=low
 
+  [ Piotr Ożarowski ]
   * debian/watch file added
 
- -- Piotr Ożarowski <piotr@debian.org>  Sat, 29 Dec 2007 12:26:35 +0100
+  [ Sandro Tosi ]
+  * debian/control
+    - added Vcs-Svn and Vcs-Browser
+
+ -- Sandro Tosi <matrixhasu@gmail.com>  Wed, 02 Jan 2008 12:54:56 +0100
 
 pyvtk (0.4.74-2) unstable; urgency=low
 
