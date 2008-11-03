@@ -6,6 +6,8 @@ pyvtk (0.4.74-3) UNRELEASED; urgency=low
   [ Sandro Tosi ]
   * debian/control
     - added Vcs-Svn and Vcs-Browser
+  * debian/control
+    - switch Vcs-Browser field to viewsvn
 
  -- Sandro Tosi <matrixhasu@gmail.com>  Wed, 02 Jan 2008 12:54:56 +0100
 

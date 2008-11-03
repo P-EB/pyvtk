@@ -8,7 +8,7 @@ Standards-Version: 3.7.3
 XS-Python-Version: all
 Homepage: http://cens.ioc.ee/projects/pyvtk/
 Vcs-Svn: svn://svn.debian.org/python-modules/packages/pyvtk/trunk/
-Vcs-Browser: http://svn.debian.org/wsvn/python-modules/packages/pyvtk/trunk/?op=log
+Vcs-Browser: http://svn.debian.org/viewsvn/python-modules/packages/pyvtk/trunk/
 
 Package: python-pyvtk
 Architecture: all
