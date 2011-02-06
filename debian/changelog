@@ -1,3 +1,22 @@
+pyvtk (0.4.74-3) unstable; urgency=low
+
+  [ Piotr Ożarowski ]
+  * debian/watch file added
+
+  [ Sandro Tosi ]
+  * debian/control
+    - added Vcs-Svn and Vcs-Browser
+  * debian/control
+    - switch Vcs-Browser field to viewsvn
+
+  [ Steve M. Robbins ]
+  * debian/control: Revise long description.  Closes: #612140.  Set
+    Standards-Version to 3.9.1.  Depend on ${misc:Depends}.
+  * debian/doc-base.python-pyvtk: Change section to Science/Data Analysis,
+    matching what VTK uses.
+
+ -- Steve M. Robbins <smr@debian.org>  Sun, 06 Feb 2011 12:04:09 -0600
+
 pyvtk (0.4.74-2) unstable; urgency=low
 
   * Move XS-Python-Version field to source stanza, change its value to
