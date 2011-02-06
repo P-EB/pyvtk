@@ -18,8 +18,9 @@ Replaces: python2.3-pyvtk (<< 0.4.66-6), python2.4-pyvtk (<< 0.4.66-6)
 Provides: ${python:Provides}
 XB-Python-Version: ${python:Versions}
 Description: module for manipulating VTK files
- PyVTK provides a VtkData class to create VTK a file from standard
- Python objects.  Only VTK File Format version 2.0 is supported.
+ PyVTK provides python classes to read and write a VTK file and
+ to create a VTK file from standard Python objects.  
+ Only VTK File Format version 2.0 is supported.
  Features include:
    - ascii and binary output, ascii input
    - DataSet formats:
