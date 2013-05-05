@@ -1,3 +1,9 @@
+pyvtk (0.4.74-4) UNRELEASED; urgency=low
+
+  * Use canonical URIs for Vcs-* fields.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 05 May 2013 16:03:48 +0200
+
 pyvtk (0.4.74-3) unstable; urgency=low
 
   [ Piotr Ożarowski ]
