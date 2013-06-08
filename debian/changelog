@@ -1,8 +1,10 @@
 pyvtk (0.4.74-4) UNRELEASED; urgency=low
 
   * Use canonical URIs for Vcs-* fields.
+  * Remove obsolete Conflicts/Replaces with python2.3-pyvtk and
+    python2.4-pyvtk.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 05 May 2013 16:03:48 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 08 Jun 2013 18:14:48 +0200
 
 pyvtk (0.4.74-3) unstable; urgency=low
 

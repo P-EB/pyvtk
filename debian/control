@@ -13,8 +13,6 @@ Vcs-Browser: http://anonscm.debian.org/viewvc/python-modules/packages/pyvtk/trun
 Package: python-pyvtk
 Architecture: all
 Depends: ${python:Depends}, ${misc:Depends}
-Conflicts: python2.3-pyvtk (<< 0.4.66-6), python2.4-pyvtk (<< 0.4.66-6)
-Replaces: python2.3-pyvtk (<< 0.4.66-6), python2.4-pyvtk (<< 0.4.66-6)
 Provides: ${python:Provides}
 XB-Python-Version: ${python:Versions}
 Description: module for manipulating VTK files
