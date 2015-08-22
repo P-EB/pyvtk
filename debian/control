@@ -3,7 +3,7 @@ Section: python
 Priority: optional
 Maintainer: Steve M. Robbins <smr@debian.org>
 Uploaders: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
-Build-Depends: debhelper (>= 5.0.38), python-support (>= 0.6.4), python (>= 2.3.5-11)
+Build-Depends: debhelper (>= 5.0.38), dh-python, python (>= 2.3.5-11)
 Standards-Version: 3.9.1
 XS-Python-Version: all
 Homepage: http://cens.ioc.ee/projects/pyvtk/

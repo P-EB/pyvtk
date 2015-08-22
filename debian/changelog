@@ -1,3 +1,10 @@
+pyvtk (0.4.74-3.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Build using dh-python. Closes: #786247.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 22 Aug 2015 14:01:51 +0200
+
 pyvtk (0.4.74-3) unstable; urgency=low
 
   [ Piotr Ożarowski ]

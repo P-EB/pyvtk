@@ -35,7 +35,7 @@ install: build
 	dh_installdirs
 
 	python setup.py install --no-compile \
-		--install-lib=$(PREFIX)/share/python-support/python-pyvtk
+		--prefix=$(PREFIX)
 
 	mkdir -p debian/python-pyvtk/usr/share/doc/python-pyvtk
 	cp -a doc debian/python-pyvtk/usr/share/doc/python-pyvtk/html
@@ -57,7 +57,7 @@ binary-common:
 	dh_link
 	dh_compress -X.py
 	dh_fixperms
-	dh_pysupport
+	dh_python2
 	dh_installdeb
 	dh_gencontrol
 	dh_md5sums
