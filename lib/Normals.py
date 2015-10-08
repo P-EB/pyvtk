@@ -11,7 +11,7 @@ terms of the LGPL.  See http://www.fsf.org
 
 NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
 $Revision: 1.3 $
-$Date: 2001/05/31 17:48:54 $
+$Date: 2001-05-31 17:48:54 $
 Pearu Peterson
 """
 

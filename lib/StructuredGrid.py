@@ -10,8 +10,8 @@ Permission to use, modify, and distribute this software is given under the
 terms of the LGPL.  See http://www.fsf.org
 
 NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
-$Revision: 1.3 $
-$Date: 2001/05/31 17:48:54 $
+$Revision: 1.4 $
+$Date: 2007-02-22 08:43:39 $
 Pearu Peterson
 """
 
@@ -50,6 +50,9 @@ class StructuredGrid(DataSet.DataSet):
 
     def get_points(self):
         return self.points
+
+    def get_cell_size(self):
+        return len(self.points)
 
 def structured_grid_fromfile(f,self):
     l = common._getline(f).split(' ')

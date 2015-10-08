@@ -8,11 +8,11 @@ terms of the LGPL.  See http://www.fsf.org
 
 NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
 $Revision: 1.1 $
-$Date: 2001/05/20 12:51:29 $
+$Date: 2001-05-20 12:51:29 $
 Pearu Peterson
 """
 
-__version__ = "$Id: Scalars.py,v 1.1 2001/05/20 12:51:29 pearu Exp $"
+__version__ = "$Id: Scalars.py,v 1.1 2001-05-20 12:51:29 pearu Exp $"
 
 import DataSetAttr
 import string

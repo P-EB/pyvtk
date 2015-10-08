@@ -10,12 +10,13 @@ Permission to use, modify, and distribute this software is given under the
 terms of the LGPL.  See http://www.fsf.org
 
 NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
-$Revision: 1.3 $
-$Date: 2001/05/31 17:48:55 $
+$Revision: 1.4 $
+$Date: 2003-10-13 18:40:49 $
 Pearu Peterson
 """
 
 import DataSetAttr
+import common
 
 class Tensors(DataSetAttr.DataSetAttr):
     """Holds VTK Tensors.

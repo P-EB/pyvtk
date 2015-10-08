@@ -12,8 +12,8 @@ Permission to use, modify, and distribute this software is given under the
 terms of the LGPL.  See http://www.fsf.org
 
 NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
-$Revision: 1.10 $
-$Date: 2003/01/26 10:05:27 $
+$Revision: 1.11 $
+$Date: 2003-04-07 14:56:08 $
 Pearu Peterson
 """
 
@@ -190,7 +190,7 @@ class VtkData(common.Common):
             raise ValueError,'filename must be non-empty string'
         if filename[-4:]!='.vtk':
             filename += '.vtk'
-        print 'Creating file',`filename`
+        #print 'Creating file',`filename`
         f = open(filename,'wb')
         f.write(self.to_string(format))
         f.close()
@@ -199,7 +199,7 @@ class VtkData(common.Common):
         filename = filename.strip()
         if filename[-4:]!='.vtk':
             filename += '.vtk'
-        print 'Reading file',`filename`
+        #print 'Reading file',`filename`
         f = open(filename,'rb')
         l = f.readline()
         if not l.strip().replace(' ','').lower() == '#vtkdatafileversion2.0':
