@@ -1,0 +1,19 @@
+
+0.4 (???)
+* Fixed binary writer for UnstructuredGrid.
+* Fixed 256 characters limit bug in header of VTK file (bug report and
+  fix: Steve M. Robbins)
+* Fixed interruption of a `while 1: ..` cycle in PolyData.py
+* Fixed writing binary files (bug report and fix: Hans Fangohr)
+* Support for Python 1.5, 2.0 is dropped until one asks for it.
+* Implemented <Data>.append(<DataSetAttr>).
+* <DataSet>.get_points() returns sequence of 3-tuples of points.
+* Introduced <DataSet>.<DataSetAttr>() for constructing VTK data
+  from VTK data structure. 
+* Implemented VTK data reader from a file with ASCII format.
+  Usage: VtkData(<filename>, only_structure = 0)
+* Finished documentation strings of relevant classes/methods.
+* `No data' gives warning (was ValueError).
+
+0.3 (21 May 2001)
+* First public release.

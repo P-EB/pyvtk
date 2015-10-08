@@ -1,0 +1,15 @@
+Metadata-Version: 1.0
+Name: PyVTK
+Version: 0.4.66
+Summary: PyVTK - tools for manipulating VTK files in Python
+Home-page: http://cens.ioc.ee/projects/pyvtk/
+Author: Pearu Peterson
+Author-email: pearu@cens.ioc.ee
+License: UNKNOWN
+Description: 
+        PyVTK provides tools for manipulating VTK (Visualization Toolkit)
+        files in Python:
+        
+        VtkData - create VTK files from Python / read VTK files to Python.
+        
+Platform: UNKNOWN
