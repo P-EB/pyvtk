@@ -7,14 +7,12 @@ Build-Depends: debhelper (>= 5.0.38), dh-python, python (>= 2.3.5-11)
 Standards-Version: 3.9.1
 XS-Python-Version: all
 Homepage: http://cens.ioc.ee/projects/pyvtk/
-Vcs-Svn: svn://svn.debian.org/python-modules/packages/pyvtk/trunk/
-Vcs-Browser: http://svn.debian.org/viewsvn/python-modules/packages/pyvtk/trunk/
+Vcs-Svn: svn://anonscm.debian.org/python-modules/packages/pyvtk/trunk/
+Vcs-Browser: http://anonscm.debian.org/viewvc/python-modules/packages/pyvtk/trunk/
 
 Package: python-pyvtk
 Architecture: all
 Depends: ${python:Depends}, ${misc:Depends}
-Conflicts: python2.3-pyvtk (<< 0.4.66-6), python2.4-pyvtk (<< 0.4.66-6)
-Replaces: python2.3-pyvtk (<< 0.4.66-6), python2.4-pyvtk (<< 0.4.66-6)
 Provides: ${python:Provides}
 XB-Python-Version: ${python:Versions}
 Description: module for manipulating VTK files
