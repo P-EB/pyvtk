@@ -1,13 +1,6 @@
 #!/usr/bin/env python
 
-import sys
-sys.path = ['..']+sys.path
-if sys.version[:3]=='1.5':
-    from lib152 import *
-else:
-    from lib import *
-
-#from pyvtk import *
+from pyvtk import *
 
 structure = PolyData(points=[[0,0,0],[1,0,0],[1,1,0],[0,1,0],
                              [0,0,1],[1,0,1],[1,1,1],[0,1,1]],

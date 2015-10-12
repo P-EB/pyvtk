@@ -1,4 +1,20 @@
-Description: Inline patches from 0.4.74-3
+From 08048196042b19fdaf16cdbd893a54646a9587c5 Mon Sep 17 00:00:00 2001
+From: Stefano Rivera <stefanor@debian.org>
+Date: Mon, 12 Oct 2015 23:32:22 +0200
+Subject: Inline patches from 0.4.74-3
+
+Patch-Name: inline
+---
+ doc/gen_pydoc.sh     | 3 +++
+ examples/example1.py | 9 +--------
+ examples/example2.py | 9 +--------
+ examples/example3.py | 9 +--------
+ 4 files changed, 6 insertions(+), 24 deletions(-)
+ create mode 100644 doc/gen_pydoc.sh
+
+diff --git a/doc/gen_pydoc.sh b/doc/gen_pydoc.sh
+new file mode 100644
+index 0000000..10b5b00
 --- /dev/null
 +++ b/doc/gen_pydoc.sh
 @@ -0,0 +1,3 @@
