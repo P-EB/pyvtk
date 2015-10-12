@@ -1,8 +1,12 @@
 pyvtk (0.4.74-4) UNRELEASED; urgency=low
 
+  [ Jakub Wilk ]
   * Use canonical URIs for Vcs-* fields.
   * Remove obsolete Conflicts/Replaces with python2.3-pyvtk and
     python2.4-pyvtk.
+
+  [ Stefano Rivera ]
+  * Convert inline patch to 3.0 (quilt) to ease git-dpm migration.
 
  -- Jakub Wilk <jwilk@debian.org>  Sat, 08 Jun 2013 18:14:48 +0200
 

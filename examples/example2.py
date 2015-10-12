@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
-from pyvtk import *
+import sys
+sys.path = ['..']+sys.path
+if sys.version[:3]=='1.5':
+    from lib152 import *
+else:
+    from lib import *
+
+#from pyvtk import *
 
 vtk = VtkData(StructuredPoints([3,4,6]),
               PointData(Scalars([0,0,0,0,0,0,0,0,0,0,0,0,
