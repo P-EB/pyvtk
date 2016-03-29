@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 5.0.38), dh-python, python (>= 2.3.5-11)
 Standards-Version: 3.9.1
 XS-Python-Version: all
 Homepage: http://cens.ioc.ee/projects/pyvtk/
-Vcs-Git: git://anonscm.debian.org/python-modules/packages/pyvtk.git
+Vcs-Git: https://anonscm.debian.org/git/python-modules/packages/pyvtk.git
 Vcs-Browser: https://anonscm.debian.org/cgit/python-modules/packages/pyvtk.git
 
 Package: python-pyvtk
