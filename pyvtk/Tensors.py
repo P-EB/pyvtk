@@ -2,21 +2,11 @@
 """
 Tensors
 """
-"""
+__author__ = "Pearu Peterson <pearu.peterson@gmail.com>"
+__license__ = "New BSD"
 
-Copyright 2001 Pearu Peterson all rights reserved,
-Pearu Peterson <pearu@ioc.ee>          
-Permission to use, modify, and distribute this software is given under the
-terms of the LGPL.  See http://www.fsf.org
-
-NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
-$Revision: 1.4 $
-$Date: 2003-10-13 18:40:49 $
-Pearu Peterson
-"""
-
-import DataSetAttr
-import common
+import pyvtk.DataSetAttr as DataSetAttr
+import pyvtk.common as common
 
 class Tensors(DataSetAttr.DataSetAttr):
     """Holds VTK Tensors.
@@ -44,7 +34,7 @@ def tensors_fromfile(f,n,sl):
     assert len(sl)==2
     dataname = sl[0].strip()
     datatype = sl[1].strip().lower()
-    assert datatype in ['bit','unsigned_char','char','unsigned_short','short','unsigned_int','int','unsigned_long','long','float','double'],`datatype`
+    assert datatype in ['bit','unsigned_char','char','unsigned_short','short','unsigned_int','int','unsigned_long','long','float','double'],repr(datatype)
     arr = []
     while len(arr)<9*n:
         arr += map(eval,common._getline(f).split(' '))
@@ -55,5 +45,5 @@ def tensors_fromfile(f,n,sl):
     return Tensors(arr2,dataname)
 
 if __name__ == "__main__":
-    print Tensors([[[3,3]],[4,3.],[[240]],3,2,3]).to_string('ascii')
-    print Tensors(3).to_string('ascii')
+    print(Tensors([[[3,3]],[4,3.],[[240]],3,2,3]).to_string('ascii'))
+    print(Tensors(3).to_string('ascii'))

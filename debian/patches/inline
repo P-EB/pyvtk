@@ -1,15 +1,12 @@
-From 08048196042b19fdaf16cdbd893a54646a9587c5 Mon Sep 17 00:00:00 2001
+From 8bc2f77ba3f85e69e6d3540bb1e384089aa4daca Mon Sep 17 00:00:00 2001
 From: Stefano Rivera <stefanor@debian.org>
 Date: Mon, 12 Oct 2015 23:32:22 +0200
 Subject: Inline patches from 0.4.74-3
 
 Patch-Name: inline
 ---
- doc/gen_pydoc.sh     | 3 +++
- examples/example1.py | 9 +--------
- examples/example2.py | 9 +--------
- examples/example3.py | 9 +--------
- 4 files changed, 6 insertions(+), 24 deletions(-)
+ doc/gen_pydoc.sh | 3 +++
+ 1 file changed, 3 insertions(+)
  create mode 100644 doc/gen_pydoc.sh
 
 diff --git a/doc/gen_pydoc.sh b/doc/gen_pydoc.sh
@@ -21,60 +18,3 @@ index 0000000..10b5b00
 +#!/bin/sh
 +
 +pydoc -w pyvtk pyvtk.VtkData pyvtk.StructuredGrid pyvtk.StructuredPoints pyvtk.UnstructuredGrid pyvtk.RectilinearGrid pyvtk.PolyData pyvtk.PointData pyvtk.CellData pyvtk.Scalars pyvtk.ColorScalars pyvtk.LookupTable pyvtk.Vectors pyvtk.Normals pyvtk.TextureCoordinates pyvtk.Tensors pyvtk.Field
-diff --git a/examples/example1.py b/examples/example1.py
-index b6ac072..695ba7a 100644
---- a/examples/example1.py
-+++ b/examples/example1.py
-@@ -1,13 +1,6 @@
- #!/usr/bin/env python
- 
--import sys
--sys.path = ['..']+sys.path
--if sys.version[:3]=='1.5':
--    from lib152 import *
--else:
--    from lib import *
--
--#from pyvtk import *
-+from pyvtk import *
- 
- structure = PolyData(points=[[0,0,0],[1,0,0],[1,1,0],[0,1,0],
-                              [0,0,1],[1,0,1],[1,1,1],[0,1,1]],
-diff --git a/examples/example2.py b/examples/example2.py
-index 73b11fc..9befc44 100644
---- a/examples/example2.py
-+++ b/examples/example2.py
-@@ -1,13 +1,6 @@
- #!/usr/bin/env python
- 
--import sys
--sys.path = ['..']+sys.path
--if sys.version[:3]=='1.5':
--    from lib152 import *
--else:
--    from lib import *
--
--#from pyvtk import *
-+from pyvtk import *
- 
- vtk = VtkData(StructuredPoints([3,4,6]),
-               PointData(Scalars([0,0,0,0,0,0,0,0,0,0,0,0,
-diff --git a/examples/example3.py b/examples/example3.py
-index 167c191..2c870c1 100644
---- a/examples/example3.py
-+++ b/examples/example3.py
-@@ -1,13 +1,6 @@
- #!/usr/bin/env python
- 
--import sys
--sys.path = ['..']+sys.path
--if sys.version[:3]=='1.5':
--    from lib152 import *
--else:
--    from lib import *
--
--#from pyvtk import *
-+from pyvtk import *
- 
- points = [[0,0,0],[1,0,0],[2,0,0],[0,1,0],[1,1,0],[2,1,0],
-           [0,0,1],[1,0,1],[2,0,1],[0,1,1],[1,1,1],[2,1,1],

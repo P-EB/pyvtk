@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import sys
+sys.path = ['..']+sys.path
+
 from pyvtk import *
 
 vtk = VtkData(StructuredPoints([3,4,6]),

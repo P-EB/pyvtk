@@ -2,22 +2,16 @@
 """
 Normals
 """
-"""
+__author__ = "Pearu Peterson <pearu.peterson@gmail.com>"
+__license__ = "New BSD"
 
-Copyright 2001 Pearu Peterson all rights reserved,
-Pearu Peterson <pearu@ioc.ee>          
-Permission to use, modify, and distribute this software is given under the
-terms of the LGPL.  See http://www.fsf.org
+import logging
+log = logging.getLogger(__name__)
 
-NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
-$Revision: 1.3 $
-$Date: 2001-05-31 17:48:54 $
-Pearu Peterson
-"""
-
-import DataSetAttr
 import math
-import common
+
+import pyvtk.DataSetAttr as DataSetAttr
+import pyvtk.common as common
 
 class Normals(DataSetAttr.DataSetAttr):
     """Holds VTK Normals.
@@ -36,30 +30,32 @@ class Normals(DataSetAttr.DataSetAttr):
         for v in self.get_3_tuple_list(normals,(self.default_value,)*3):
             n = math.sqrt(v[0]*v[0]+v[1]*v[1]+v[2]*v[2])
             if n==0:
-                self.warning('cannot normalize zero vector')
+                log.warning('cannot normalize zero vector')
                 seq.append(v)
             elif n==1:
                 seq.append(v)
             else:
                 seq.append(tuple([c/n for c in v]))
         self.normals = seq
+
     def to_string(self,format='ascii'):
         t = self.get_datatype(self.normals)
-        ret = ['NORMALS %s %s'%(self.name,t),
+        ret = [('NORMALS %s %s'%(self.name,t)).encode(),
                self.seq_to_string(self.normals,format,t)]
-        return '\n'.join(ret)
+        return b'\n'.join(ret)
+
     def get_size(self):
         return len(self.normals)
 
 def normals_fromfile(f,n,sl):
     dataname = sl[0]
     datatype = sl[1].lower()
-    assert datatype in ['bit','unsigned_char','char','unsigned_short','short','unsigned_int','int','unsigned_long','long','float','double'],`datatype`
+    assert datatype in ['bit','unsigned_char','char','unsigned_short','short','unsigned_int','int','unsigned_long','long','float','double'],repr(datatype)
     normals = []
     while len(normals) < 3*n:
-        normals += map(eval,common._getline(f).split(' '))
+        normals += map(eval,common._getline(f).decode('ascii').split(' '))
     assert len(normals) == 3*n
     return Normals(normals,dataname)
 
 if __name__ == "__main__":
-    print Normals([[3,3],[4,3.],240,3,2]).to_string()
+    print(Normals([[3,3],[4,3.],240,3,2]).to_string())
