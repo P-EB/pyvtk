@@ -2,10 +2,10 @@
 08048196042b19fdaf16cdbd893a54646a9587c5
 08048196042b19fdaf16cdbd893a54646a9587c5
 f88d8de9a7da550cc90b322666207a9ed6c2be79
-f88d8de9a7da550cc90b322666207a9ed6c2be79
-pyvtk_0.4.74.orig.tar.gz
-672e55192ee7c4ec6e2e7616ac155bf08856877b
-25700
+7507f91b71073f1dc26ab2344c75bbac781445cd
+python-pyvtk_0.5.18.orig.tar.gz
+0499155f6b4bfa074a85afccf770058aa9a2e3f0
+18199
 debianTag="debian/%e%v"
 patchedTag="patched/%e%v"
 upstreamTag="upstream/%e%u"
