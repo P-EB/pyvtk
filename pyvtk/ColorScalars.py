@@ -2,23 +2,11 @@
 """
 ColorScalars
 """
-"""
+__author__ = "Pearu Peterson <pearu.peterson@gmail.com>"
+__license__ = "New BSD"
 
-Copyright 2001 Pearu Peterson all rights reserved,
-Pearu Peterson <pearu@ioc.ee>          
-Permission to use, modify, and distribute this software is given under the
-terms of the LGPL.  See http://www.fsf.org
-
-NO WARRANTY IS EXPRESSED OR IMPLIED.  USE AT YOUR OWN RISK.
-$Revision: 1.2 $
-$Date: 2001-05-31 17:48:54 $
-Pearu Peterson
-"""
-
-__version__ = "$Id: ColorScalars.py,v 1.2 2001-05-31 17:48:54 pearu Exp $"
-
-import common
-import DataSetAttr
+import pyvtk.common as common
+import pyvtk.DataSetAttr as DataSetAttr
 
 class ColorScalars(DataSetAttr.DataSetAttr):
     """Holds VTK color scalars.
@@ -52,14 +40,14 @@ class ColorScalars(DataSetAttr.DataSetAttr):
 def color_scalars_fromfile(f,n,sl):
     assert len(sl)==2
     dataname = sl[0].strip()
-    nvals = eval(sl[1])
+    nvals = int(sl[1])
     scalars = []
     while len(scalars)<nvals*n:
-        scalars += map(eval,common._getline(f).split(' '))
+        scalars += map(float, common._getline(f).decode('ascii').split(' '))
     assert len(scalars)==nvals*n
     scalars2 = []
     for i in range(0,len(scalars),nvals):
         scalars2.append(scalars[i:i+nvals])
     return ColorScalars(scalars2,dataname)
 if __name__ == "__main__":
-    print ColorScalars([[3,3],[4,3],240,3,2]).to_string()
+    print(ColorScalars([[3,3],[4,3],240,3,2]).to_string())
