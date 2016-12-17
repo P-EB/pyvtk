@@ -1,79 +1,22 @@
 #!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
 
-PYVERS=$(shell pyversions -r)
-PREFIX := debian/python-pyvtk/usr
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/default.mk
 
-clean:
-	dh_testdir
-	dh_testroot
-	python setup.py clean
-	rm -f build-stamp
+export PYBUILD_NAME=pyvtk
 
-	-find -name '*.py[co]' | xargs rm -f
-	rm -f doc/pyvtk doc/*.html
-	rm -f lib/test.vtk
-	rm -rf build
+# main packaging script based on dh7 syntax
+%:
+	dh $@ --with python2,python3 --buildsystem=pybuild
 
-	dh_clean
-
-build: build-stamp
-build-stamp:
-	dh_testdir
-
-	ln -s ../lib doc/pyvtk
-	cd doc && sh gen_pydoc.sh
-	rm -f doc/pyvtk
-
-	touch build-stamp
-
-
-install: DH_OPTIONS=
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-	dh_installdirs
-
-	python setup.py install --no-compile \
-		--prefix=$(PREFIX)
-
+override_dh_auto_install:
+	dh_auto_install
+	
 	mkdir -p debian/python-pyvtk/usr/share/doc/python-pyvtk
 	cp -a doc debian/python-pyvtk/usr/share/doc/python-pyvtk/html
-
-	dh_install
-
-
-# This single target is used to build all the packages, all at once, or
-# one at a time. So keep in mind: any options passed to commands here will
-# affect _all_ packages. Anything you want to only affect one package
-# should be put in another target, such as the install target.
-binary-common:
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs
-	dh_installdocs BUGS.txt NEWS.txt README.txt TODO.txt
-	dh_installexamples examples/*
-	dh_strip
-	dh_link
-	dh_compress -X.py
-	dh_fixperms
-	dh_python2
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-# Build architecture independant packages using the common target.
-binary-indep: build install
-	 $(MAKE) -f debian/rules DH_OPTIONS=-i binary-common
-
-# Build architecture dependant packages using the common target.
-binary-arch: build install
-#	$(MAKE) -f debian/rules DH_OPTIONS=-a binary-common
-
-# Any other binary targets build just one binary package at a time.
-binary-%: build install
-	make -f debian/rules binary-common DH_OPTIONS=-p$*
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+	
+	mkdir -p debian/python3-pyvtk/usr/share/doc/python3-pyvtk
+	cp -a doc debian/python3-pyvtk/usr/share/doc/python3-pyvtk/html

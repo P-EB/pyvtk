@@ -1,0 +1,9 @@
+Document: python-pyvtk
+Title: PyVTK Module
+Author: Pearu Peterson
+Abstract: Tools for manipulating VTK files in Python.
+Section: Science/Data Analysis
+
+Format: HTML
+Index: /usr/share/doc/python-pyvtk/html/index.html
+Files: /usr/share/doc/python-pyvtk/html/*.html
